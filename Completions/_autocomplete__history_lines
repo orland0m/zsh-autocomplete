@@ -10,7 +10,7 @@ _autocomplete__history_lines() {
   local -P lbuffer='' rbuffer=''
 
   (( CURRENT > 1 )) &&
-      lbuffer="${(j.[[:blank:]]##.)${(@b)words[1,CURRENT-1]}}[[:blank:]]##"
+      lbuffer="*${(j.[[:blank:]]##.)${(@b)words[1,CURRENT-1]}}[[:blank:]]##"
   (( CURRENT < $#words[@] )) &&
       rbuffer="[[:blank:]]##${(j.[[:blank:]]##.)${(@b)words[CURRENT+1,-1]}}"
   lbuffer="$lbuffer${(b)QIPREFIX}"
